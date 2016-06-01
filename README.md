@@ -7,6 +7,6 @@ A Community powered utility to track nearby Ice Cream Trucks :)
 
 - [x] Use Socket.io for Real time updating
 - [x] Finish Web GUI form
-- [ ] Integrate Socket.io with MongoDB
+- [ ] Implement some sort of database
 - [x] Use Express.js
 - [x] Update TODO
