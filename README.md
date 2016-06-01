@@ -9,4 +9,4 @@ A Community powered utility to track nearby Ice Cream Trucks :)
 - [x] Finish Web GUI form
 - [ ] Integrate Socket.io with MongoDB
 - [x] Use Express.js
-- [x]Update TODO
+- [x] Update TODO
