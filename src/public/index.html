@@ -70,7 +70,7 @@ function sendData() {
   }
 }
 function getGeo(user, desc, pos, stamp) {
-  var infoWindow = new google.maps.InfoWindow({content: "Last seen here by <b>" + user + "</b>, " + desc +"<br> <i> about 0 min ago </i> </br>"});
+  var infoWindow = new google.maps.InfoWindow();
   var marker = new google.maps.Marker({
         position: pos,
         map: map,
@@ -80,18 +80,27 @@ function getGeo(user, desc, pos, stamp) {
       marker.addListener('click', function () {
         infoWindow.open(map, marker);
       });
+      var cont = setInterval(function() {
+        var num = parseInt(moment().format('hmmss')) - stamp;
+        if (num < 60) {
+          infoWindow.setContent("Last seen here by <b>" + user + "</b>, " + desc +"<br> <i> about " + num + " second(s) ago </i> </br>");
+        }
+        else if (num > 60) {
+          infoWindow.setContent("Last seen here by <b>" + user + "</b>, " + desc +"<br> <i> about 1 minute ago </i> </br>");
+        }
+      }, 1000);
       var interv = setInterval(function() {
         console.log(parseInt(moment().format('hmmss')) - stamp);
         if (parseInt(moment().format('hmmss')) - stamp > 120) {
           socket.on('delete', function() {
             console.log("deleting marker");
             marker.setMap(null);
+            clearInterval(cont);
             clearInterval(interv);
           })
         }
       }, 3000);
 }
-
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
