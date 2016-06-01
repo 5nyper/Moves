@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway;
+}
+
+.sidebar {
+  color: white;
+  background: rgba(32,48,71,0.98);
+  text-align: center;
+  font-size: 35px;
+  height: 100%;;
+  width: 30%;
+  padding-top: 25px;
+  position: absolute;
+}
+
+input[type=text] {
+  width: 150px;
+  height: 40px;
+  margin-top: px;
+}
+
+#map {
+  margin-left: 30%;
+  height: 790px;
+}
+.button#lel{
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  border-radius: 15px;
+  padding: 10px;
+  border-bottom: 5px solid green;
+  cursor:pointer;
+  background-color: #90c53f;
+  left: 30%;
+  margin-top: 50px;
+}
+
+.photo {
+  width: 50px;
+  height: 50px;
+}
