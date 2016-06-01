@@ -24,11 +24,12 @@
 </div>
 <div id="map"></div>
 <script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 <script>
 var socket = io.connect('http://localhost:3000');
 socket.on('mark', function(data) {
   console.log("mark on client");
-  getGeo(data.username, data.description, data.coor);
+  getGeo(data.username, data.description, data.coor, data.time);
 });
 var map;
 function initMap() {
@@ -50,6 +51,7 @@ function initMap() {
 }
 
 function sendData() {
+  var stamp = parseInt(moment().format('hmmss'));
   var user = document.getElementById("user").value;
   var desc = document.getElementById("desc").value;
 
@@ -59,7 +61,7 @@ function sendData() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      socket.emit('spot', {username: user, description: desc, coor: pos});
+      socket.emit('spot', {username: user, description: desc, coor: pos, time: stamp});
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -67,9 +69,9 @@ function sendData() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 }
-function getGeo(user, desc, pos) {
+function getGeo(user, desc, pos, stamp) {
   var infoWindow = new google.maps.InfoWindow({content: "Last seen here by <b>" + user + "</b>, " + desc +"<br> <i> about 0 min ago </i> </br>"});
-      var marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
         position: pos,
         map: map,
         title: "Ice Cream Truck Spotted"
@@ -78,6 +80,16 @@ function getGeo(user, desc, pos) {
       marker.addListener('click', function () {
         infoWindow.open(map, marker);
       });
+      var interv = setInterval(function() {
+        console.log(parseInt(moment().format('hmmss')) - stamp);
+        if (parseInt(moment().format('hmmss')) - stamp > 120) {
+          socket.on('delete', function() {
+            console.log("deleting marker");
+            marker.setMap(null);
+            clearInterval(interv);
+          })
+        }
+      }, 3000);
 }
 
 
