@@ -1,4 +1,4 @@
-# JoyTracker
+# Scoopr
 A Community powered utility to track nearby Ice Cream Trucks :)
 
 ![Sneek Peak](https://raw.githubusercontent.com/Vikaton/JoyTracker/master/image.jpeg)
