@@ -26,9 +26,9 @@ input[type=text] {
 
 #map {
   margin-left: 30%;
-  height: 790px;
+  height: 785px;
 }
-.button#lel{
+.button#submit{
   font-size: 20px;
   text-align: center;
   color: white;
@@ -40,6 +40,20 @@ input[type=text] {
   background-color: #90c53f;
   left: 30%;
   margin-top: 50px;
+}
+
+.button#off{
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  border-radius: 15px;
+  padding: 10px;
+  border-bottom: 5px solid darkred;
+  cursor:pointer;
+  background-color: red;
+  left: 30%;
+  margin-top: 125px;
 }
 
 .photo {
