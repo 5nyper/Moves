@@ -1,6 +1,7 @@
 # Scoopr
-A Community powered utility to track nearby Ice Cream Trucks :)
+An app to track Ice Cream trucks real-time :)
 
+(deprecated, changing design of the idea itself)
 ![Sneek Peak](https://raw.githubusercontent.com/Vikaton/JoyTracker/master/image.jpeg)
 
 #TODO
@@ -9,4 +10,4 @@ A Community powered utility to track nearby Ice Cream Trucks :)
 - [x] Finish Web GUI form
 - [ ] Implement some sort of database
 - [x] Use Express.js
-- [x] Update TODO
+- [x] Apply changes to the idea
