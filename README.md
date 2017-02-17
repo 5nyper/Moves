@@ -1,13 +1,17 @@
-# Scoopr
-An app to track Ice Cream trucks real-time :)
+<p align="center">
+  <img align="center" src="http://i.imgur.com/RfvXMFr.png" />
 
-(deprecated, changing design of the idea itself)
-![Sneek Peak](https://raw.githubusercontent.com/Vikaton/JoyTracker/master/image.jpeg)
+</p>
+
+###An app to browse and discover events happening on campus :)
+
+
+
+![Sneek Peak](http://i.imgur.com/VHKMqcy.png)
 
 #TODO
 
-- [x] Use Socket.io for Real time updating
-- [x] Finish Web GUI form
-- [ ] Implement some sort of database
-- [x] Use Express.js
-- [x] Apply changes to the idea
+- [x] Finish WebApp PoC
+- [ ] Start developing for iOS
+- [ ] Finish TODO
+
